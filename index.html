@@ -123,32 +123,32 @@
         }
   
 
-        /* New navigation hover effects */
-        .nav-link {
-            position: relative;
-            transition: all 0.3s ease;
-        }
+       /* New navigation hover effects */
+.nav-link {
+    position: relative;
+    transition: all 0.3s ease;
+}
 
-        .nav-link:hover {
-            transform: scale(1.05);
-            text-shadow: 0 0 8px rgba(139, 92, 246, 0.7);
-        }
+.nav-link:hover {
+    transform: scale(1.05);
+    text-shadow: 0 0 8px rgba(139, 92, 246, 0.7);
+}
 
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -2px;
-            width: 0;
-            height: 2px;
-            background: #8b5cf6;
-            transition: width 0.3s ease;
-        }
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background: #8b5cf6;
+    transition: width 0.3s ease;
+}
 
-        .nav-link:hover::after {
-            width: 100%;
-            box-shadow: 0 0 10px #8b5cf6;
-        }
+.nav-link:hover::after {
+    width: 100%;
+    box-shadow: 0 0 10px #8b5cf6;
+}
 
     </style>
 </head>
@@ -174,10 +174,11 @@
 
                 </div>
                 <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
-                    <a href="#features" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Features</a>
-                    <a href="#download" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Download</a>
-                    <a href="#faq" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">FAQ</a>
-                    <a href="#contact" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+                    <a href="#features" class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Features</a>
+<a href="#download" class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Download</a>
+<a href="#faq" class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">FAQ</a>
+<a href="#contact" class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+
                 </div>
                 <div class="-mr-2 flex items-center md:hidden">
                     <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-dark-700 focus:outline-none" aria-controls="mobile-menu" aria-expanded="false" onclick="toggleMobileMenu()">
